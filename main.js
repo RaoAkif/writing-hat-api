@@ -15,7 +15,7 @@ navBarList.forEach((i) => {
 
 closeIcon.addEventListener('click', () => {
   mobilePopupNav.classList.toggle('active');
-})
+});
 
 // ----------------- Popup window functionality ----------------------- START//
 

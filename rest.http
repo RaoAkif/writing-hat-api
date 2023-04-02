@@ -1,0 +1,169 @@
+// -------- START USERS REQUESTS -------- //
+### REGISTER A USER
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+  "pseudonym": "raoakif08",
+  "email": "akifrao5@gmail.com",
+  "city": "Lahore",
+  "password": "123456",
+  "country": "Pakistan",
+  "profileImage": "https://avatars.githubusercontent.com/u/61361037?s=400&u=5a3fe223b969f16e2a4523817eb3acf361935f74&v=4"
+}
+
+### LOGIN USER
+POST http://localhost:5000/api/auth/
+Content-Type: application/json
+
+{
+  "pseudonym": "raoakif",
+  "password": "123456"
+}
+
+### GET ALL USERS
+GET http://localhost:5000/api/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+### GET USER BY ID
+GET http://localhost:5000/api/users/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+### EDIT USER
+PUT http://localhost:5000/api/users/4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+{
+    "pseudonym": "raoakif4",
+    "email": "akifrao4@gmail.com",
+    "password": "123456"
+}
+
+### DELETE A USER
+DELETE http://localhost:5000/api/users/7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+// -------- END USERS REQUESTS -------- //
+
+# ---------------------------------------------------------
+
+// -------- START PROMPT-CATEGORY REQUESTS -------- //
+### ADD A PROMT-CATEGORY
+POST http://localhost:5000/api/promptCategories
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+{
+  "name": "poem"
+}
+
+### GET ALL PROMPT-CATEGORIES
+GET http://localhost:5000/api/promptCategories
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+### GET PROMPT-CATEGORY BY ID
+GET http://localhost:5000/api/promptCategories/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+### EDIT PROMPT-CATEGORY BY ID
+PUT http://localhost:5000/api/promptCategories/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+{
+  "name": "cooking"
+}
+
+### DELETE PROMPT-CATEGORY BY ID
+DELETE http://localhost:5000/api/promptCategories/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+// -------- END PROMPT-CATEGORY REQUESTS -------- //
+
+# ---------------------------------------------------------
+
+// -------- START PROMPT REQUESTS -------- //
+### ADD A PROMT
+POST http://localhost:5000/api/prompts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+{
+  "description": "Leisure by William Henry Davies",
+  "promptCategoryId": 2,
+  "userId": 4
+}
+
+### GET ALL PROMPT
+GET http://localhost:5000/api/prompts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+### GET PROMPT BY ID
+GET http://localhost:5000/api/prompts/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+### EDIT PROMPT BY ID
+PUT http://localhost:5000/api/prompts/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+{
+  "description": "Leisure by William Henry Davies",
+  "promptCategoryId": 2,
+  "userId": 1
+}
+
+### DELETE PROMPT BY ID
+DELETE http://localhost:5000/api/prompts/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+// -------- END PROMPT REQUESTS -------- //
+
+# ---------------------------------------------------------
+
+// -------- START RESPONSE REQUESTS -------- //
+### ADD A RESPONSE
+POST http://localhost:5000/api/responses
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+{
+  "description": "This is a beautiful poem",
+  "userId": 1,
+  "promptId": 3
+}
+
+### GET ALL RESPONSES
+GET http://localhost:5000/api/responses
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+### GET RESPONSE BY ID
+GET http://localhost:5000/api/responses/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+### EDIT RESPONSES BY ID
+PUT http://localhost:5000/api/responses/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+{
+  "description": "This is a beautiful poem.",
+  "promptId": 2,
+  "userId": 5
+}
+
+### DELETE RESPONSE BY ID
+DELETE http://localhost:5000/api/responses/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+
+// -------- END RESPONSE REQUESTS -------- //

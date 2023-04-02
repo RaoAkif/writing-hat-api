@@ -1,23 +1,29 @@
 {
-  "name": "portfolio",
+  "name": "writing-hat-api",
   "version": "1.0.0",
-  "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RaoAkif/Portfolio.git"
+  "prisma": {
+    "seed": "node prisma/seed.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/RaoAkif/Portfolio/issues"
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "jsonwebtoken": "^9.0.0"
   },
-  "homepage": "https://github.com/RaoAkif/Portfolio#readme",
   "devDependencies": {
-    "stylelint": "^14.4.0",
-    "stylelint-config-standard": "^25.0.0"
+    "@prisma/client": "^4.11.0",
+    "nodemon": "^2.0.20",
+    "prisma": "^4.11.0"
   }
 }

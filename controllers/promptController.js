@@ -67,6 +67,17 @@ const updatePrompt = async (req, res, next) => {
   try {
     const { id } = req.params;
     const { description, promptCategoryId, userId } = req.body;
+
+    const prompt = await prisma.prompt.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    if (!prompt) {
+      return res.status(404).json({ message: "Prompt not found" });
+    }
+
     const updatedPrompt = await prisma.prompt.update({
       where: {
         id: Number(id),
@@ -74,7 +85,7 @@ const updatePrompt = async (req, res, next) => {
       data: {
         description,
         promptCategoryId,
-        userId
+        userId,
       },
     });
     res.json(updatedPrompt);

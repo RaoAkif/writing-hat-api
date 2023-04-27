@@ -55,7 +55,12 @@ const registerUser = async (req, res, next) => {
 // @access Private
 const getAllUsers = async (req, res, next) => {
   try {
-    const users = await prisma.user.findMany();
+    const users = await prisma.user.findMany({
+      include: {
+        prompt: true,
+        response: true
+      }
+    });
     res.status(200).json(users);
   } catch (error) {
     next(error);
@@ -92,6 +97,16 @@ const updateUser = async (req, res, next) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
+    const user = await prisma.user.findUnique({
+      where: {
+        id: Number(req.params.id),
+      },
+    });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
     const updateUser = await prisma.user.update({
       where: {
         id: Number(req.params.id),
@@ -105,14 +120,13 @@ const updateUser = async (req, res, next) => {
         profileImage,
       },
     });
-    if (!updateUser) {
-      return res.status(404).json({ message: "User not found" });
-    }
+
     res.status(200).json(updateUser);
   } catch (error) {
     next(error);
   }
 };
+
 
 // @desc Delete a user
 // @route DELETE /users/:id

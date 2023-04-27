@@ -35,19 +35,7 @@ async function main() {
         create: [
           {
             description: 'Leisure by William Henry Davies',
-            promptCategoryId: 1,
-            response: {
-              create: [
-                {
-                  description: 'This is a beautiful poem',
-                  userId: 2
-                },
-                {
-                  description: 'This is a very beautiful poem',
-                  userId: 2
-                },
-              ],
-            },
+            promptCategoryId: 1
           },
         ],
       },

@@ -5,7 +5,7 @@ Content-Type: application/json
 
 {
   "pseudonym": "raoakif08",
-  "email": "akifrao5@gmail.com",
+  "email": "akifrao8@gmail.com",
   "city": "Lahore",
   "password": "123456",
   "country": "Pakistan",
@@ -24,28 +24,29 @@ Content-Type: application/json
 ### GET ALL USERS
 GET http://localhost:5000/api/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 ### GET USER BY ID
-GET http://localhost:5000/api/users/1
+GET http://localhost:5000/api/users/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 ### EDIT USER
-PUT http://localhost:5000/api/users/4
+PUT http://localhost:5000/api/users/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 {
-    "pseudonym": "raoakif4",
-    "email": "akifrao4@gmail.com",
-    "password": "123456"
+    "pseudonym": "raoakif",
+    "email": "akifrao@gmail.com",
+    "password": "123456",
+    "profileImage": "https://raw.githubusercontent.com/Immages/writinghat/main/caps/thinking_cap1.png"
 }
 
 ### DELETE A USER
-DELETE http://localhost:5000/api/users/7
+DELETE http://localhost:5000/api/users/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 // -------- END USERS REQUESTS -------- //
 
 # ---------------------------------------------------------
@@ -54,35 +55,35 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc
 ### ADD A PROMT-CATEGORY
 POST http://localhost:5000/api/promptCategories
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 {
-  "name": "poem"
+  "name": "cook"
 }
 
 ### GET ALL PROMPT-CATEGORIES
 GET http://localhost:5000/api/promptCategories
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 ### GET PROMPT-CATEGORY BY ID
-GET http://localhost:5000/api/promptCategories/1
+GET http://localhost:5000/api/promptCategories/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 ### EDIT PROMPT-CATEGORY BY ID
-PUT http://localhost:5000/api/promptCategories/1
+PUT http://localhost:5000/api/promptCategories/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 {
   "name": "cooking"
 }
 
 ### DELETE PROMPT-CATEGORY BY ID
-DELETE http://localhost:5000/api/promptCategories/1
+DELETE http://localhost:5000/api/promptCategories/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 // -------- END PROMPT-CATEGORY REQUESTS -------- //
 
 # ---------------------------------------------------------
@@ -91,28 +92,28 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc
 ### ADD A PROMT
 POST http://localhost:5000/api/prompts
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 {
   "description": "Leisure by William Henry Davies",
   "promptCategoryId": 2,
-  "userId": 4
+  "userId": 2
 }
 
 ### GET ALL PROMPT
 GET http://localhost:5000/api/prompts
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 ### GET PROMPT BY ID
 GET http://localhost:5000/api/prompts/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 ### EDIT PROMPT BY ID
-PUT http://localhost:5000/api/prompts/1
+PUT http://localhost:5000/api/prompts/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 {
   "description": "Leisure by William Henry Davies",
@@ -121,9 +122,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc
 }
 
 ### DELETE PROMPT BY ID
-DELETE http://localhost:5000/api/prompts/2
+DELETE http://localhost:5000/api/prompts/4
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 // -------- END PROMPT REQUESTS -------- //
 
 # ---------------------------------------------------------
@@ -132,7 +133,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc
 ### ADD A RESPONSE
 POST http://localhost:5000/api/responses
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 {
   "description": "This is a beautiful poem",
@@ -143,27 +144,44 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc
 ### GET ALL RESPONSES
 GET http://localhost:5000/api/responses
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 ### GET RESPONSE BY ID
 GET http://localhost:5000/api/responses/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 ### EDIT RESPONSES BY ID
-PUT http://localhost:5000/api/responses/1
+PUT http://localhost:5000/api/responses/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 {
-  "description": "This is a beautiful poem.",
+  "id": 1,
+  "description": "I love the Uzbek Pulao very much",
   "promptId": 2,
-  "userId": 5
+  "userId": 1
 }
 
 ### DELETE RESPONSE BY ID
-DELETE http://localhost:5000/api/responses/1
+DELETE http://localhost:5000/api/responses/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY3OTgyOTg2MSwiZXhwIjoxNjc5ODMwNzYxfQ.utnafr4bf4ayFeit3E0oa_jAO0hrm3g4765pbzwsg_Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 // -------- END RESPONSE REQUESTS -------- //
+
+
+### LOGIN USER
+POST https://writing-hat-api.vercel.app/api/auth/
+Content-Type: application/json
+
+{
+  "pseudonym": "raoakif",
+  "password": "123456"
+}
+
+
+### GET ALL USERS
+GET https://writing-hat-api.vercel.app/api/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzNTk5OSwiZXhwIjoxNjgyNjM2ODk5fQ.ZBpN71Lo8wvBO6udvAeeYNr0n0Cbo7Wrr5BFm4uLJoE

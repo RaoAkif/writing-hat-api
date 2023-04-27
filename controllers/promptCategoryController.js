@@ -74,6 +74,16 @@ const updatePromptCategory = async (req, res, next) => {
       throw new Error("Name is required");
     }
 
+    const promptCategory = await prisma.promptCategory.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    if (!promptCategory) {
+      return res.status(404).json({ message: "PromptCategory not found" });
+    }
+
     const updatedPromptCategory = await prisma.promptCategory.update({
       where: {
         id: Number(id),

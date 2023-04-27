@@ -31,13 +31,13 @@ const login = async (req, res, next) => {
         }
       },
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: '15m' }
+      { expiresIn: '7d' }
     )
 
     const refreshToken = jwt.sign(
       { "pseudonym": user.pseudonym },
       process.env.REFRESH_TOKEN_SECRET,
-      { expiresIn: '7d' }
+      { expiresIn: '28d' }
     )
 
     res.cookie('jwt', refreshToken, {

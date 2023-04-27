@@ -58,7 +58,7 @@ const getResponseById = async (req, res, next) => {
 }
 
 // @desc Update a Response
-// @route POST /Responses/1
+// @route PUT /Responses/:id
 // @access Private
 const updateResponse = async (req, res, next) => {
   try {
@@ -72,7 +72,17 @@ const updateResponse = async (req, res, next) => {
       return res.status(400).json({ error: "Invalid Response ID" });
     }
 
-    const updateResponse = await prisma.response.update({
+    const existingResponse = await prisma.response.findUnique({
+      where: {
+        id: responseId,
+      },
+    });
+
+    if (!existingResponse) {
+      return res.status(404).json({ error: "Response not found" });
+    }
+
+    const updatedResponse = await prisma.response.update({
       where: {
         id: responseId,
       },
@@ -81,12 +91,13 @@ const updateResponse = async (req, res, next) => {
         userId,
         promptId,
       },
-    })
-    res.json(updateResponse)
+    });
+
+    res.json(updatedResponse);
   } catch (error) {
     next(error);
   }
-}
+};
 
 // @desc Delete a Response
 // @route DELETE /Responses/:id

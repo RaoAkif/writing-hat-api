@@ -25,8 +25,10 @@ app.use("/api/promptCategories", promptCategoriesRoute);
 app.use("/api/prompts", promptRoute);
 app.use("/api/responses", responseRoute);
 
-app.listen("5000", () => {
-  console.log("Backend is running.");
+// LISTEN TO PORT
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running at PORT ${PORT} | http://localhost:${PORT}/`)
 });
 
-module.exports = app

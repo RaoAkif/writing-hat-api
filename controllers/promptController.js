@@ -68,7 +68,7 @@ const getPromptById = async (req, res, next) => {
 const updatePrompt = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { description, promptCategoryId, userId } = req.body;
+    const { title, description, promptCategoryId, userId } = req.body;
 
     const prompt = await prisma.prompt.findUnique({
       where: {
@@ -85,6 +85,7 @@ const updatePrompt = async (req, res, next) => {
         id: Number(id),
       },
       data: {
+        title,
         description,
         promptCategoryId,
         userId,

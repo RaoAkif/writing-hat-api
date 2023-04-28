@@ -121,13 +121,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc
 
 ### EDIT PROMPT BY ID
 PUT http://localhost:5000/api/prompts/2
-Content-Type: application/json
+content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 {
-  "description": "Leisure by William Henry Davies222222",
-  "promptCategoryId": 1,
-  "userId": 1
+  "title": "No Nonsense",
+  "description": "Finally someone showed up with a glass of water! They always wondered if the ghost had finally  dissappeared from the house. No other sounds were ever heard from the dusty basement anymore. They always would wonder if the ghost had finally left and dissappeared from the house.They always  wondered if the ghost had finally  dissappeared from the house. They always  wondered if the ghost had finally  dissappeared from the house. I They always  wondered if the ghost had finally  dissappeared from the house.",
+  "promptId": 2,
+  "userId": 2
 }
 
 ### DELETE PROMPT BY ID
@@ -162,15 +163,16 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 ### EDIT RESPONSES BY ID
-PUT http://localhost:5000/api/responses/3
+PUT http://localhost:5000/api/responses/6
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 {
-  "id": 1,
-  "description": "I love the Uzbek Pulao very much",
-  "promptId": 2,
-  "userId": 1
+  "id": 6,
+  "title": "No Nonsense",
+  "description": "Finally someone showed up with a glass of water! They always wondered if the ghost had finally  dissappeared from the house. No other sounds were ever heard from the dusty basement anymore. They always would wonder if the ghost had finally left and dissappeared from the house.They always  wondered if the ghost had finally  dissappeared from the house. They always  wondered if the ghost had finally  dissappeared from the house. I They always  wondered if the ghost had finally  dissappeared from the house.",
+  "promptId": 1,
+  "userId": 2
 }
 
 ### DELETE RESPONSE BY ID

@@ -64,9 +64,9 @@ const getResponseById = async (req, res, next) => {
 // @access Private
 const updateResponse = async (req, res, next) => {
   try {
-    const { description, userId, promptId } = req.body;
-    if (!description || !userId || !promptId) {
-      return res.status(400).json({ error: "Description, userId, and promptId are required" });
+    const { title, description, userId, promptId } = req.body;
+    if (!title || !description || !userId || !promptId) {
+      return res.status(400).json({ error: "Title, Description, userId, and promptId are required" });
     }
 
     const responseId = Number(req.params.id);
@@ -89,6 +89,7 @@ const updateResponse = async (req, res, next) => {
         id: responseId,
       },
       data: {
+        title,
         description,
         userId,
         promptId,

@@ -95,10 +95,19 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 {
-  "description": "Leisure by William Henry Davies",
-  "promptCategoryId": 2,
-  "userId": 2
+  "title": "No Nonsense",
+  "description": "Finally someone showed up with a glass of water! Sue frantically leaped towards the fisherman and finally someone showed up with a glass of water!",
+  "promptCategoryId": 1,
+  "userId": 1
 }
+
+# {
+#   "title": "Sleep Hollow",
+#   "description": "No other sounds were ever heard from the basement anymore. They always wondered if no other sounds were ever heard from the basement anymore.",
+#   "promptCategoryId": 2,
+#   "userId": 2
+# }
+
 
 ### GET ALL PROMPT
 GET http://localhost:5000/api/prompts
@@ -111,20 +120,20 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 ### EDIT PROMPT BY ID
-PUT http://localhost:5000/api/prompts/4
+PUT http://localhost:5000/api/prompts/2
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 {
-  "description": "Leisure by William Henry Davies",
-  "promptCategoryId": 2,
+  "description": "Leisure by William Henry Davies222222",
+  "promptCategoryId": 1,
   "userId": 1
 }
 
 ### DELETE PROMPT BY ID
-DELETE http://localhost:5000/api/prompts/4
+DELETE http://localhost:5000/api/prompts/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjY4MjkyNSwiZXhwIjoxNjgzMjg3NzI1fQ.VwNnGalQknXpX-tR3DNaoA0yQhZDsEqYcX_dGLFxG1g
 // -------- END PROMPT REQUESTS -------- //
 
 # ---------------------------------------------------------
@@ -164,7 +173,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc
 }
 
 ### DELETE RESPONSE BY ID
-DELETE http://localhost:5000/api/responses/3
+DELETE http://localhost:5000/api/responses/2
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
@@ -184,4 +193,20 @@ Content-Type: application/json
 ### GET ALL USERS
 GET https://writing-hat-api.vercel.app/api/users
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzNTk5OSwiZXhwIjoxNjgyNjM2ODk5fQ.ZBpN71Lo8wvBO6udvAeeYNr0n0Cbo7Wrr5BFm4uLJoE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjY4MjkyNSwiZXhwIjoxNjgzMjg3NzI1fQ.VwNnGalQknXpX-tR3DNaoA0yQhZDsEqYcX_dGLFxG1g
+
+### GET ALL PROMPTS
+GET https://writing-hat-api.vercel.app/api/prompts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjY4MjkyNSwiZXhwIjoxNjgzMjg3NzI1fQ.VwNnGalQknXpX-tR3DNaoA0yQhZDsEqYcX_dGLFxG1g
+
+### EDIT PROMPT BY ID
+PUT https://writing-hat-api.vercel.app/api/prompts/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjY4MjkyNSwiZXhwIjoxNjgzMjg3NzI1fQ.VwNnGalQknXpX-tR3DNaoA0yQhZDsEqYcX_dGLFxG1g
+
+{
+  "description": "Leisure by William Henry Davies",
+  "promptCategoryId": 2,
+  "userId": 1
+}

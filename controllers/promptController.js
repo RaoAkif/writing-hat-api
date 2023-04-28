@@ -5,15 +5,17 @@ const prisma = new PrismaClient();
 // @route POST /Prompts
 // @access Private
 const addPrompt = async (req, res, next) => {
-  const { description, promptCategoryId, userId } = req.body;
+  const { title, description, promptCategoryId, userId } = req.body;
   try {
     const newPrompt = await prisma.prompt.create({
       data: {
+        title,
         description,
         promptCategoryId,
         userId
       },
       select: {
+        title: true,
         description: true
       }
     })
@@ -107,8 +109,10 @@ const deletePrompt = async (req, res, next) => {
     const prompt = await prisma.prompt.findUnique({
       where: { id: Number(id) },
     });
-
+    console.log(prompt)
+    
     if (!prompt) {
+      console.log("Prompt Not Found BLOCK", prompt)
       return res.status(404).json({ message: "Prompt not found" });
     }
 

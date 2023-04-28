@@ -145,9 +145,10 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 
 {
-  "description": "This is a beautiful poem",
+  "title": "Sleep Hollow",
+  "description": "No other sounds were ever heard from the basement anymore. They always wondered if no other sounds were ever heard from the basement anymore.",
   "userId": 1,
-  "promptId": 3
+  "promptId": 1
 }
 
 ### GET ALL RESPONSES
@@ -173,7 +174,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc
 }
 
 ### DELETE RESPONSE BY ID
-DELETE http://localhost:5000/api/responses/2
+DELETE http://localhost:5000/api/responses/5
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJwc2V1ZG9ueW0iOiJyYW9ha2lmIn0sImlhdCI6MTY4MjYzMTc4MiwiZXhwIjoxNjgzMjM2NTgyfQ.ucJTIgrHYIUHIEosirCyzu6YrDhodqllheG5u8ws6FA
 

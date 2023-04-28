@@ -6,14 +6,16 @@ const prisma = new PrismaClient();
 // @access Private
 const addResponse = async (req, res, next) => {
   try {
-    const { description, userId, promptId } = req.body;
+    const { title, description, userId, promptId } = req.body;
     const newResponse = await prisma.response.create({
       data: {
+        title,
         description,
         userId,
         promptId,
       },
       select: {
+        title: true,
         description: true
       }
     })

@@ -78,6 +78,10 @@ const getUserById = async (req, res, next) => {
       where: {
         id: Number(id),
       },
+      include: {
+        prompt: true,
+        response: true
+      }
     });
     if (!user) {
       return res.status(404).json({ message: "User not found" });

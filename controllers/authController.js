@@ -86,7 +86,7 @@ const refresh = async (req, res, next) => {
       { expiresIn: '15m' }
     )
 
-    res.json({ accessToken })
+    res.json({ accessToken, id: user.id })
   } catch (error) {
     next(error);
   }

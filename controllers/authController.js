@@ -47,7 +47,7 @@ const login = async (req, res, next) => {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     })
 
-    res.json({ accessToken })
+    res.json({ accessToken, id: user.id })
   } catch (error) {
     next(error);
   }
@@ -86,7 +86,7 @@ const refresh = async (req, res, next) => {
       { expiresIn: '15m' }
     )
 
-    res.json({ accessToken, id: user.id })
+    res.json({ accessToken })
   } catch (error) {
     next(error);
   }

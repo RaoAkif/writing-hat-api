@@ -59,7 +59,7 @@ const verifyJWT = require('../middleware/verifyJWT');
  *       409:
  *         description: A user with this pseudonym or email already exists
  */
-router.post("/api/users", userController.registerUser);
+router.post("/", userController.registerUser);
 
 router.use(verifyJWT);
 
@@ -82,7 +82,7 @@ router.use(verifyJWT);
  *               items:
  *                 $ref: '#/components/schemas/User'
  */
-router.get("/api/users", userController.getAllUsers);
+router.get("/", userController.getAllUsers);
 
 /**
  * @swagger
@@ -110,7 +110,7 @@ router.get("/api/users", userController.getAllUsers);
  *       404:
  *         description: User not found
  */
-router.get("/api/users/:id", userController.getUserById);
+router.get("/:id", userController.getUserById);
 
 /**
  * @swagger
@@ -140,7 +140,7 @@ router.get("/api/users/:id", userController.getUserById);
  *       404:
  *         description: User not found
  */
-router.put("/api/users/:id", userController.updateUser);
+router.put("/:id", userController.updateUser);
 
 /**
  * @swagger
@@ -164,6 +164,6 @@ router.put("/api/users/:id", userController.updateUser);
  *       404:
  *         description: User not found
  */
-router.delete("/api/users/:id", userController.deleteUser);
+router.delete("/:id", userController.deleteUser);
 
 module.exports = router;

@@ -65,7 +65,7 @@ const verifyJWT = require('../middleware/verifyJWT')
  *               items:
  *                 $ref: '#/components/schemas/PromptCategory'
  */
-router.route("/api/promptCategories")
+router.route("/")
   .post(verifyJWT, promptCategoryController.addPromptCategory)
   .get(verifyJWT, promptCategoryController.getAllPromptCategories)
 
@@ -141,7 +141,7 @@ router.route("/api/promptCategories")
  *       404:
  *         description: Prompt category not found
  */
-router.route("/api/promptCategories/:id")
+router.route("/:id")
   .get(verifyJWT, promptCategoryController.getPromptCategoryById)
   .put(verifyJWT, promptCategoryController.updatePromptCategory)
   .delete(verifyJWT, promptCategoryController.deletePromptCategory)

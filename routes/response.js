@@ -69,7 +69,7 @@ const verifyJWT = require('../middleware/verifyJWT')
  *               items:
  *                 $ref: '#/components/schemas/Response'
  */
-router.route("/api/responses")
+router.route("/")
   .post(verifyJWT, responseController.addResponse)
   .get(verifyJWT, responseController.getAllResponses)
 
@@ -147,7 +147,7 @@ router.route("/api/responses")
  *       404:
  *         description: Response not found
  */
-router.route("/api/responses/:id")
+router.route("/:id")
   .get(verifyJWT, responseController.getResponseById)
   .put(verifyJWT, responseController.updateResponse)
   .delete(verifyJWT, responseController.deleteResponse)

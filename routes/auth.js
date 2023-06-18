@@ -14,8 +14,8 @@ const loginLimiter = require('../middleware/loginLimiter');
  *         password:
  *           type: string
  *       example:
- *         pseudonym: john_doe
- *         password: password123
+ *         pseudonym: "raoakif"
+ *         password: "123456"
  *     LoginResponse:
  *       type: object
  *       properties:
@@ -72,7 +72,7 @@ const loginLimiter = require('../middleware/loginLimiter');
  *       401:
  *         description: Invalid credentials
  */
-router.post('/api/auth', loginLimiter, authController.login);
+router.post('/', loginLimiter, authController.login);
 
 /**
  * @swagger
@@ -91,7 +91,7 @@ router.post('/api/auth', loginLimiter, authController.login);
  *       401:
  *         description: Unauthorized or invalid refresh token
  */
-router.get('/api/auth/refresh', authController.refresh);
+router.get('/refresh', authController.refresh);
 
 /**
  * @swagger
@@ -108,6 +108,6 @@ router.get('/api/auth/refresh', authController.refresh);
  *             schema:
  *               $ref: '#/components/schemas/LogoutResponse'
  */
-router.post('/api/auth/logout', authController.logout);
+router.post('/logout', authController.logout);
 
 module.exports = router;

@@ -71,7 +71,7 @@ const verifyJWT = require('../middleware/verifyJWT')
  *               items:
  *                 $ref: '#/components/schemas/Prompt'
  */
-router.route("/api/prompts")
+router.route("/")
   .post(verifyJWT, promptController.addPrompt)
   .get(verifyJWT, promptController.getAllPrompts)
 
@@ -149,7 +149,7 @@ router.route("/api/prompts")
  *       404:
  *         description: Prompt not found
  */
-router.route("/api/prompts/:id")
+router.route("/:id")
   .get(verifyJWT, promptController.getPromptById)
   .put(verifyJWT, promptController.updatePrompt)
   .delete(verifyJWT, promptController.deletePrompt)

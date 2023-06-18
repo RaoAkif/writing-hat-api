@@ -2,15 +2,154 @@ const router = require("express").Router();
 const responseController = require("../controllers/responseController")
 const verifyJWT = require('../middleware/verifyJWT')
 
-router.use(verifyJWT)
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Response:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *         description:
+ *           type: string
+ *         userId:
+ *           type: integer
+ *         promptId:
+ *           type: integer
+ *       example:
+ *         id: 1
+ *         description: Response 1
+ *         userId: 1
+ *         promptId: 1
+ */
 
-router.route("/")
-  .post(responseController.addResponse)
-  .get(responseController.getAllResponses)
+/**
+ * @swagger
+ * tags:
+ *   name: Responses
+ *   description: Responses API
+ */
 
-router.route("/:id")
-  .get(responseController.getResponseById)
-  .put(responseController.updateResponse)
-  .delete(responseController.deleteResponse)
+/**
+ * @swagger
+ * /api/responses:
+ *   post:
+ *     summary: Add a response
+ *     description: Add a new response
+ *     tags: [Responses]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Response'
+ *     responses:
+ *       200:
+ *         description: Response added successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Response'
+ *   get:
+ *     summary: Get all responses
+ *     description: Retrieve all responses
+ *     tags: [Responses]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Successful operation
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Response'
+ */
+router.route("/api/responses")
+  .post(verifyJWT, responseController.addResponse)
+  .get(verifyJWT, responseController.getAllResponses)
+
+/**
+ * @swagger
+ * /api/responses/{id}:
+ *   get:
+ *     summary: Get a response by ID
+ *     description: Retrieve a response by its ID
+ *     tags: [Responses]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID of the response
+ *     responses:
+ *       200:
+ *         description: Successful operation
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Response'
+ *       404:
+ *         description: Response not found
+ *   put:
+ *     summary: Update a response
+ *     description: Update an existing response
+ *     tags: [Responses]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID of the response
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Response'
+ *     responses:
+ *       200:
+ *         description: Response updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Response'
+ *       400:
+ *         description: Description, userId, and promptId are required
+ *       404:
+ *         description: Response not found
+ *   delete:
+ *     summary: Delete a response
+ *     description: Delete an existing response
+ *     tags: [Responses]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID of the response
+ *     responses:
+ *       200:
+ *         description: Response deleted successfully
+ *       404:
+ *         description: Response not found
+ */
+router.route("/api/responses/:id")
+  .get(verifyJWT, responseController.getResponseById)
+  .put(verifyJWT, responseController.updateResponse)
+  .delete(verifyJWT, responseController.deleteResponse)
 
 module.exports = router;

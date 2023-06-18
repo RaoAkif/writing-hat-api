@@ -6,16 +6,14 @@ const prisma = new PrismaClient();
 // @access Private
 const addResponse = async (req, res, next) => {
   try {
-    const { title, description, userId, promptId } = req.body;
+    const { description, userId, promptId } = req.body;
     const newResponse = await prisma.response.create({
       data: {
-        title,
         description,
         userId,
         promptId,
       },
       select: {
-        title: true,
         description: true
       }
     })
@@ -64,9 +62,9 @@ const getResponseById = async (req, res, next) => {
 // @access Private
 const updateResponse = async (req, res, next) => {
   try {
-    const { title, description, userId, promptId } = req.body;
-    if (!title || !description || !userId || !promptId) {
-      return res.status(400).json({ error: "Title, Description, userId, and promptId are required" });
+    const { description, userId, promptId } = req.body;
+    if (!description || !userId || !promptId) {
+      return res.status(400).json({ error: "Description, userId, and promptId are required" });
     }
 
     const responseId = Number(req.params.id);
@@ -89,7 +87,6 @@ const updateResponse = async (req, res, next) => {
         id: responseId,
       },
       data: {
-        title,
         description,
         userId,
         promptId,

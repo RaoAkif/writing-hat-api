@@ -28,6 +28,7 @@ const login = async (req, res, next) => {
       {
         "UserInfo": {
           "userId": user.id
+          // "pseudonym": user.pseudonym
         }
       },
       process.env.ACCESS_TOKEN_SECRET,
@@ -47,7 +48,7 @@ const login = async (req, res, next) => {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     })
 
-    res.json({ accessToken, id: user.id, pseudonym: user.pseudonym })
+    res.json({ accessToken, id: user.id })
   } catch (error) {
     next(error);
   }

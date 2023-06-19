@@ -44,6 +44,14 @@ const verifyJWT = require('../middleware/verifyJWT');
  *         pseudonym: "raoakif08"
  *         email: "akifrao8@gmail.com"
  */
+
+/**
+ * @swagger
+ * tags:
+ *   name: Users
+ *   description: User management
+ */
+
 /**
  * @swagger
  * /api/users:
@@ -67,8 +75,6 @@ const verifyJWT = require('../middleware/verifyJWT');
  */
 router.post("/", userController.registerUser);
 
-router.use(verifyJWT);
-
 /**
  * @swagger
  * /api/users:
@@ -77,7 +83,14 @@ router.use(verifyJWT);
  *     description: Retrieve all users
  *     tags: [Users]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
+ *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         description: Successful operation
@@ -89,10 +102,10 @@ router.use(verifyJWT);
  *                 $ref: '#/components/schemas/User'
  *       401:
  *         description: Unauthorized
- *       500:
- *         description: Internal Server Error
+ *       403:
+ *         description: Forbidden
  */
-router.get("/", userController.getAllUsers);
+router.get("/", verifyJWT, userController.getAllUsers);
 
 /**
  * @swagger
@@ -102,8 +115,14 @@ router.get("/", userController.getAllUsers);
  *     description: Retrieve a user by its ID
  *     tags: [Users]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
  *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for Authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *       - in: path
  *         name: id
  *         schema:
@@ -111,16 +130,8 @@ router.get("/", userController.getAllUsers);
  *         required: true
  *         description: ID of the user
  *     responses:
- *       200:
- *         description: Successful operation
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/User'
- *       404:
- *         description: User not found
+ *        ...
  */
-router.get("/:id", userController.getUserById);
 
 /**
  * @swagger
@@ -130,8 +141,14 @@ router.get("/:id", userController.getUserById);
  *     description: Update an existing user
  *     tags: [Users]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
  *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for Authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *       - in: path
  *         name: id
  *         schema:
@@ -139,18 +156,8 @@ router.get("/:id", userController.getUserById);
  *         required: true
  *         description: ID of the user
  *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/User'
- *     responses:
- *       200:
- *         description: User updated successfully
- *       404:
- *         description: User not found
+ *        ...
  */
-router.put("/:id", userController.updateUser);
 
 /**
  * @swagger
@@ -160,8 +167,14 @@ router.put("/:id", userController.updateUser);
  *     description: Delete an existing user
  *     tags: [Users]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
  *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for Authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *       - in: path
  *         name: id
  *         schema:
@@ -169,11 +182,7 @@ router.put("/:id", userController.updateUser);
  *         required: true
  *         description: ID of the user
  *     responses:
- *       200:
- *         description: User deleted successfully
- *       404:
- *         description: User not found
+ *        ...
  */
-router.delete("/:id", userController.deleteUser);
 
 module.exports = router;

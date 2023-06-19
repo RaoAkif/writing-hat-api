@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const promptCategoryController = require("../controllers/promptCategoryController")
-const verifyJWT = require('../middleware/verifyJWT')
+const promptCategoryController = require("../controllers/promptCategoryController");
+const verifyJWT = require('../middleware/verifyJWT');
 
 /**
  * @swagger
@@ -33,7 +33,14 @@ const verifyJWT = require('../middleware/verifyJWT')
  *     description: Add a new prompt category
  *     tags: [Prompt Categories]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
+ *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *     requestBody:
  *       required: true
  *       content:
@@ -54,7 +61,14 @@ const verifyJWT = require('../middleware/verifyJWT')
  *     description: Retrieve all prompt categories
  *     tags: [Prompt Categories]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
+ *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         description: Successful operation
@@ -67,7 +81,7 @@ const verifyJWT = require('../middleware/verifyJWT')
  */
 router.route("/")
   .post(verifyJWT, promptCategoryController.addPromptCategory)
-  .get(verifyJWT, promptCategoryController.getAllPromptCategories)
+  .get(verifyJWT, promptCategoryController.getAllPromptCategories);
 
 /**
  * @swagger
@@ -77,8 +91,14 @@ router.route("/")
  *     description: Retrieve a prompt category by its ID
  *     tags: [Prompt Categories]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
  *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *       - in: path
  *         name: id
  *         schema:
@@ -99,8 +119,14 @@ router.route("/")
  *     description: Update an existing prompt category
  *     tags: [Prompt Categories]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
  *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *       - in: path
  *         name: id
  *         schema:
@@ -127,8 +153,14 @@ router.route("/")
  *     description: Delete an existing prompt category
  *     tags: [Prompt Categories]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
  *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *       - in: path
  *         name: id
  *         schema:
@@ -144,6 +176,6 @@ router.route("/")
 router.route("/:id")
   .get(verifyJWT, promptCategoryController.getPromptCategoryById)
   .put(verifyJWT, promptCategoryController.updatePromptCategory)
-  .delete(verifyJWT, promptCategoryController.deletePromptCategory)
+  .delete(verifyJWT, promptCategoryController.deletePromptCategory);
 
 module.exports = router;

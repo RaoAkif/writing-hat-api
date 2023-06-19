@@ -15,15 +15,15 @@ const verifyJWT = require('../middleware/verifyJWT');
  *           type: string
  *         city:
  *           type: string
- *         pasword:
+ *         password:
  *           type: string
  *         country:
  *           type: string
  *         profileImage:
  *           type: string
  *       example:
- *         pseudonym: John Doe
- *         email: john.doe@example.com
+ *         pseudonym: John Doe 01
+ *         email: john.doe01@example.com
  *         password: "123456"
  *         city: "Lahore"
  *         country: "Pakistan"
@@ -41,14 +41,9 @@ const verifyJWT = require('../middleware/verifyJWT');
  *         promptId:
  *           type: integer
  *       example:
- *           pseudonym: "raoakif08"
-             email: "akifrao8@gmail.com"
-             city: "Lahore"
-             password: "123456"
-             country: "Pakistan"
-             profileImage: "https://avatars.githubusercontent.com/u/61361037?s=400&u=5a3fe223b969f16e2a4523817eb3acf361935f74&v=4"
+ *         pseudonym: "raoakif08"
+ *         email: "akifrao8@gmail.com"
  */
-
 /**
  * @swagger
  * /api/users:
@@ -92,6 +87,10 @@ router.use(verifyJWT);
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/User'
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal Server Error
  */
 router.get("/", userController.getAllUsers);
 

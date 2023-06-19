@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const responseController = require("../controllers/responseController")
-const verifyJWT = require('../middleware/verifyJWT')
+const responseController = require("../controllers/responseController");
+const verifyJWT = require('../middleware/verifyJWT');
 
 /**
  * @swagger
@@ -39,7 +39,14 @@ const verifyJWT = require('../middleware/verifyJWT')
  *     description: Add a new response
  *     tags: [Responses]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
+ *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *     requestBody:
  *       required: true
  *       content:
@@ -58,7 +65,14 @@ const verifyJWT = require('../middleware/verifyJWT')
  *     description: Retrieve all responses
  *     tags: [Responses]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
+ *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         description: Successful operation
@@ -71,7 +85,7 @@ const verifyJWT = require('../middleware/verifyJWT')
  */
 router.route("/")
   .post(verifyJWT, responseController.addResponse)
-  .get(verifyJWT, responseController.getAllResponses)
+  .get(verifyJWT, responseController.getAllResponses);
 
 /**
  * @swagger
@@ -81,8 +95,14 @@ router.route("/")
  *     description: Retrieve a response by its ID
  *     tags: [Responses]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
  *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *       - in: path
  *         name: id
  *         schema:
@@ -103,8 +123,14 @@ router.route("/")
  *     description: Update an existing response
  *     tags: [Responses]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
  *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *       - in: path
  *         name: id
  *         schema:
@@ -133,8 +159,14 @@ router.route("/")
  *     description: Delete an existing response
  *     tags: [Responses]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
  *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *       - in: path
  *         name: id
  *         schema:
@@ -150,6 +182,6 @@ router.route("/")
 router.route("/:id")
   .get(verifyJWT, responseController.getResponseById)
   .put(verifyJWT, responseController.updateResponse)
-  .delete(verifyJWT, responseController.deleteResponse)
+  .delete(verifyJWT, responseController.deleteResponse);
 
 module.exports = router;

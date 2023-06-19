@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const promptController = require("../controllers/promptController")
-const verifyJWT = require('../middleware/verifyJWT')
+const promptController = require("../controllers/promptController");
+const verifyJWT = require('../middleware/verifyJWT');
 
 /**
  * @swagger
@@ -39,7 +39,14 @@ const verifyJWT = require('../middleware/verifyJWT')
  *     description: Add a new prompt
  *     tags: [Prompts]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
+ *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *     requestBody:
  *       required: true
  *       content:
@@ -61,6 +68,13 @@ const verifyJWT = require('../middleware/verifyJWT')
  *     tags: [Prompts]
  *     security:
  *       - bearerAuth: []
+ *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         description: Successful operation
@@ -73,7 +87,7 @@ const verifyJWT = require('../middleware/verifyJWT')
  */
 router.route("/")
   .post(verifyJWT, promptController.addPrompt)
-  .get(verifyJWT, promptController.getAllPrompts)
+  .get(verifyJWT, promptController.getAllPrompts);
 
 /**
  * @swagger
@@ -83,8 +97,14 @@ router.route("/")
  *     description: Retrieve a prompt by its ID
  *     tags: [Prompts]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
  *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *       - in: path
  *         name: id
  *         schema:
@@ -105,8 +125,14 @@ router.route("/")
  *     description: Update an existing prompt
  *     tags: [Prompts]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
  *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *       - in: path
  *         name: id
  *         schema:
@@ -135,8 +161,14 @@ router.route("/")
  *     description: Delete an existing prompt
  *     tags: [Prompts]
  *     security:
- *       - bearerAuth: []
+ *       - BearerAuth: []
  *     parameters:
+ *       - name: Authorization
+ *         in: header
+ *         description: Bearer token for authentication
+ *         required: true
+ *         schema:
+ *           type: string
  *       - in: path
  *         name: id
  *         schema:
@@ -152,6 +184,6 @@ router.route("/")
 router.route("/:id")
   .get(verifyJWT, promptController.getPromptById)
   .put(verifyJWT, promptController.updatePrompt)
-  .delete(verifyJWT, promptController.deletePrompt)
+  .delete(verifyJWT, promptController.deletePrompt);
 
 module.exports = router;

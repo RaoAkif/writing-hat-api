@@ -14,8 +14,8 @@ const verifyJWT = require('../middleware/verifyJWT');
  *         name:
  *           type: string
  *       example:
- *         id: 1
- *         name: Category 1
+ *         id: "1"
+ *         name: "Category 1"
  */
 
 /**

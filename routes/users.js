@@ -9,16 +9,25 @@ const verifyJWT = require('../middleware/verifyJWT');
  *     User:
  *       type: object
  *       properties:
- *         id:
- *           type: integer
- *         name:
+ *         pseudonym:
  *           type: string
  *         email:
  *           type: string
+ *         city:
+ *           type: string
+ *         pasword:
+ *           type: string
+ *         country:
+ *           type: string
+ *         profileImage:
+ *           type: string
  *       example:
- *         id: 1
- *         name: John Doe
+ *         pseudonym: John Doe
  *         email: john.doe@example.com
+ *         password: "123456"
+ *         city: "Lahore"
+ *         country: "Pakistan"
+ *         profileImage: "https://avatars.githubusercontent.com/u/61361037?s=400&u=5a3fe223b969f16e2a4523817eb3acf361935f74&v=4"
  * 
  *     Response:
  *       type: object
@@ -32,10 +41,12 @@ const verifyJWT = require('../middleware/verifyJWT');
  *         promptId:
  *           type: integer
  *       example:
- *         id: 1
- *         description: Response 1
- *         userId: 1
- *         promptId: 1
+ *           pseudonym: "raoakif08"
+             email: "akifrao8@gmail.com"
+             city: "Lahore"
+             password: "123456"
+             country: "Pakistan"
+             profileImage: "https://avatars.githubusercontent.com/u/61361037?s=400&u=5a3fe223b969f16e2a4523817eb3acf361935f74&v=4"
  */
 
 /**

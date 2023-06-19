@@ -18,10 +18,10 @@ const verifyJWT = require('../middleware/verifyJWT');
  *         promptId:
  *           type: integer
  *       example:
- *         id: 1
- *         description: Response 1
- *         userId: 1
- *         promptId: 1
+ *         id: "1"
+ *         description: "Response 1"
+ *         userId: "1"
+ *         promptId: "1"
  */
 
 /**

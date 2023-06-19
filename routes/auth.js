@@ -24,7 +24,7 @@ const loginLimiter = require('../middleware/loginLimiter');
  *         id:
  *           type: integer
  *       example:
- *         accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+ *         accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VySWQiOjF9LCJpYXQiOjE2ODcxNTA4NjEsImV4cCI6MTY4Nzc1NTY2MX0.lKB4rk8LjgTE6GctNxIWGZ5wcZbehbNVuVplcIgJHbM
  *         id: 1
  *     RefreshResponse:
  *       type: object
@@ -32,7 +32,7 @@ const loginLimiter = require('../middleware/loginLimiter');
  *         accessToken:
  *           type: string
  *       example:
- *         accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+ *         accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VySWQiOjF9LCJpYXQiOjE2ODcxNTA4NjEsImV4cCI6MTY4Nzc1NTY2MX0.lKB4rk8LjgTE6GctNxIWGZ5wcZbehbNVuVplcIgJHbM
  *     LogoutResponse:
  *       type: object
  *       properties:
@@ -74,40 +74,40 @@ const loginLimiter = require('../middleware/loginLimiter');
  */
 router.post('/', loginLimiter, authController.login);
 
-/**
- * @swagger
- * /api/auth/refresh:
- *   get:
- *     summary: Refresh access token
- *     description: Refresh the access token using the refresh token
- *     tags: [Auth]
- *     responses:
- *       200:
- *         description: Successful token refresh
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/RefreshResponse'
- *       401:
- *         description: Unauthorized or invalid refresh token
- */
-router.get('/refresh', authController.refresh);
+// /**
+//  * @swagger
+//  * /api/auth/refresh:
+//  *   get:
+//  *     summary: Refresh access token
+//  *     description: Refresh the access token using the refresh token
+//  *     tags: [Auth]
+//  *     responses:
+//  *       200:
+//  *         description: Successful token refresh
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               $ref: '#/components/schemas/RefreshResponse'
+//  *       401:
+//  *         description: Unauthorized or invalid refresh token
+//  */
+// router.get('/refresh', authController.refresh);
 
-/**
- * @swagger
- * /api/auth/logout:
- *   post:
- *     summary: Logout a user
- *     description: Logout a user and clear cookies
- *     tags: [Auth]
- *     responses:
- *       204:
- *         description: Logout successful
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/LogoutResponse'
- */
-router.post('/logout', authController.logout);
+// /**
+//  * @swagger
+//  * /api/auth/logout:
+//  *   post:
+//  *     summary: Logout a user
+//  *     description: Logout a user and clear cookies
+//  *     tags: [Auth]
+//  *     responses:
+//  *       204:
+//  *         description: Logout successful
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               $ref: '#/components/schemas/LogoutResponse'
+//  */
+// router.post('/logout', authController.logout);
 
 module.exports = router;

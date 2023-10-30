@@ -1,31 +1,32 @@
-const { PrismaClient, Prisma } = require('@prisma/client');
+const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 // @desc Add a new Prompt
 // @route POST /Prompts
 // @access Private
 const addPrompt = async (req, res, next) => {
-  const { description, promptCategoryId, userId } = req.body;
+  const { description, promptCategoryId, userId, title } = req.body;
   try {
     const newPrompt = await prisma.prompt.create({
       data: {
+        title,
         description,
         promptCategoryId,
-        userId
+        userId,
       },
       select: {
-        description: true
-      }
-    })
+        title: true,
+      },
+    });
     res.json(newPrompt);
   } catch (error) {
-    if (error.code === 'P2002') {
-      res.status(400).json({ error: 'A prompt with the same description already exists' });
+    if (error.code === "P2002") {
+      res.status(400).json({ error: "A prompt with the same description already exists" });
     } else {
       next(error);
     }
   }
-}
+};
 
 // @desc Get All Prompts
 // @route GET /Prompts
@@ -37,7 +38,7 @@ const getAllPrompts = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-}
+};
 
 // @desc Get a Prompt
 // @route GET /Prompts/:id
@@ -53,12 +54,12 @@ const getPromptById = async (req, res, next) => {
     if (prompt) {
       res.json(prompt);
     } else {
-      res.status(404).json({ error: 'Prompt not found' });
+      res.status(404).json({ error: "Prompt not found" });
     }
   } catch (error) {
     next(error);
   }
-}
+};
 
 // @desc Update a Prompt
 // @route PUT /Prompts/:id
@@ -90,13 +91,13 @@ const updatePrompt = async (req, res, next) => {
     });
     res.json(updatedPrompt);
   } catch (error) {
-    if (error.code === 'P2002' && error.meta?.target?.includes('description')) {
-      res.status(400).json({ error: 'A prompt with the same description already exists' });
+    if (error.code === "P2002" && error.meta?.target?.includes("description")) {
+      res.status(400).json({ error: "A prompt with the same description already exists" });
     } else {
       next(error);
     }
   }
-}
+};
 
 // @desc Delete a Prompt
 // @route DELETE /Prompts/1
@@ -127,5 +128,5 @@ module.exports = {
   getAllPrompts,
   getPromptById,
   updatePrompt,
-  deletePrompt
-}
+  deletePrompt,
+};

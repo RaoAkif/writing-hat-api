@@ -30,7 +30,8 @@ model PromptCategory {
 
 model Prompt {
   id               Int            @id @default(autoincrement())
-  description      String
+  title            String         @db.VarChar(255)
+  description      String         @db.VarChar(1000)
   promptCategoryId Int
   response         Response[]
   PromptCategory   PromptCategory @relation(fields: [promptCategoryId], references: [id])
@@ -43,7 +44,7 @@ model Prompt {
 
 model Response {
   id          Int    @id @default(autoincrement())
-  description String
+  description String @db.VarChar(1000)
   promptId    Int
   userId      Int
   User        User   @relation(fields: [userId], references: [id])

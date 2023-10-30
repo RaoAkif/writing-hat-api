@@ -1,5 +1,4 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const prisma = require("../services/prismaService");
 
 // @desc Add a new Response
 // @route POST /Responses
@@ -14,14 +13,14 @@ const addResponse = async (req, res, next) => {
         promptId,
       },
       select: {
-        description: true
-      }
-    })
+        description: true,
+      },
+    });
     res.json(newResponse);
   } catch (error) {
     next(error);
   }
-}
+};
 
 // @desc Get All Responses
 // @route GET /Responses
@@ -31,31 +30,31 @@ const getAllResponses = async (req, res, next) => {
     const response = await prisma.response.findMany();
     res.json(response);
   } catch (error) {
-    next(error)
+    next(error);
   }
-}
+};
 
 // @desc Get a Response
 // @route GET /Responses
 // @access Private
 const getResponseById = async (req, res, next) => {
   try {
-    const { id } = req.params
+    const { id } = req.params;
     const response = await prisma.response.findUnique({
       where: {
         id: Number(id),
       },
-    })
+    });
     if (!response) {
       const error = new Error(`Response with ID ${id} not found`);
       error.statusCode = 404;
       throw error;
     }
-    res.json(response)
+    res.json(response);
   } catch (error) {
-    next(error)
+    next(error);
   }
-}
+};
 
 // @desc Update a Response
 // @route PUT /Responses/:id
@@ -136,5 +135,5 @@ module.exports = {
   getAllResponses,
   getResponseById,
   updateResponse,
-  deleteResponse
-}
+  deleteResponse,
+};

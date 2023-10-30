@@ -1,6 +1,5 @@
 const bcrypt = require("bcrypt");
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const prisma = require("../services/prismaService");
 
 // @desc Register a new user
 // @route POST /users

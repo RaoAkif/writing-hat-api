@@ -1,5 +1,4 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const prisma = require("../services/prismaService");
 
 // @desc Add a new PromptCategory
 // @route POST /PromptCategories
@@ -13,11 +12,11 @@ const addPromptCategory = async (req, res, next) => {
 
     const newPromptCategory = await prisma.promptCategory.create({
       data: {
-        name
+        name,
       },
       select: {
-        name: true
-      }
+        name: true,
+      },
     });
     return res.status(201).json(newPromptCategory);
   } catch (error) {
@@ -114,12 +113,12 @@ const deletePromptCategory = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-}
+};
 
 module.exports = {
   addPromptCategory,
   getAllPromptCategories,
   getPromptCategoryById,
   updatePromptCategory,
-  deletePromptCategory
-}
+  deletePromptCategory,
+};

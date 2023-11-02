@@ -47,7 +47,7 @@ const getPromptById = async (req, res, next) => {
     const { id } = req.params;
     const prompt = await prisma.prompt.findUnique({
       where: {
-        id: Number(id),
+        id: parseInt(id),
       },
     });
     if (prompt) {

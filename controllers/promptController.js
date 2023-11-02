@@ -49,6 +49,13 @@ const getPromptById = async (req, res, next) => {
       where: {
         id: parseInt(id),
       },
+      select: {
+        id: true,
+        title: true,
+        description: true,
+        userId: true,
+        response: true,
+      },
     });
     if (prompt) {
       res.json(prompt);

@@ -54,7 +54,19 @@ const getPromptById = async (req, res, next) => {
         title: true,
         description: true,
         userId: true,
-        response: true,
+        response: {
+          select: {
+            id: true,
+            description: true,
+            User: {
+              select: {
+                id: true,
+                pseudonym: true,
+                hat: true,
+              },
+            },
+          },
+        },
       },
     });
     if (prompt) {

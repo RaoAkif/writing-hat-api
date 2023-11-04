@@ -4,26 +4,19 @@ const runTest = async (req, res, next) => {
   try {
     const id = 1;
     const prompt = await prisma.user.findUnique({
-      // where: {
-      //   id: parseInt(id),
-      // },
-      // select: {
-      //   id: true,
-      //   pseudonym: true,
-      //   hat: true,
-      //   _count: {
-      //     select: {
-      //       prompt: true,
-      //       response: true,
-      //     },
-      //   },
-      // },
       where: {
-        id: Number(id),
+        id: parseInt(id),
       },
-      include: {
-        prompt: true,
-        response: true,
+      select: {
+        id: true,
+        pseudonym: true,
+        hat: true,
+        _count: {
+          select: {
+            prompt: true,
+            response: true,
+          },
+        },
       },
     });
     if (prompt) {

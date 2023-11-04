@@ -10,21 +10,18 @@ const registerUser = async (req, res, next) => {
 
     // Check if all required fields are present
     const requiredFields = [pseudonym, email, password, city, country, profileImage];
-    if (requiredFields.some(field => !field)) {
-      return res.status(400).json({ message: 'All fields are required' });
+    if (requiredFields.some((field) => !field)) {
+      return res.status(400).json({ message: "All fields are required" });
     }
 
     // Check if pseudonym or email already exist
     const duplicate = await prisma.user.findFirst({
       where: {
-        OR: [
-          { pseudonym },
-          { email },
-        ],
+        OR: [{ pseudonym }, { email }],
       },
     });
     if (duplicate) {
-      return res.status(409).json({ message: 'A user with this pseudonym or email already exists' });
+      return res.status(409).json({ message: "A user with this pseudonym or email already exists" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -57,15 +54,14 @@ const getAllUsers = async (req, res, next) => {
     const users = await prisma.user.findMany({
       include: {
         prompt: true,
-        response: true
-      }
+        response: true,
+      },
     });
     res.status(200).json(users);
   } catch (error) {
     next(error);
   }
 };
-
 
 // @desc Get a user by id
 // @route GET /users/:id
@@ -75,12 +71,23 @@ const getUserById = async (req, res, next) => {
     const { id } = req.params;
     const user = await prisma.user.findUnique({
       where: {
-        id: Number(id),
+        id: parseInt(id),
       },
-      include: {
-        prompt: true,
-        response: true
-      }
+      // include: {
+      //   prompt: true,
+      //   response: true
+      // }
+      select: {
+        id: true,
+        pseudonym: true,
+        hat: true,
+        _count: {
+          select: {
+            prompt: true,
+            response: true,
+          },
+        },
+      },
     });
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -130,7 +137,6 @@ const updateUser = async (req, res, next) => {
   }
 };
 
-
 // @desc Delete a user
 // @route DELETE /users/:id
 // @access Private
@@ -140,20 +146,20 @@ const deleteUser = async (req, res, next) => {
       where: {
         id: Number(req.params.id),
       },
-    })
+    });
     if (!deletedUser) {
-      return res.status(404).json({ message: `User with ID ${req.params.id} not found` })
+      return res.status(404).json({ message: `User with ID ${req.params.id} not found` });
     }
-    res.json({ message: `User with ID ${req.params.id} has been deleted` })
+    res.json({ message: `User with ID ${req.params.id} has been deleted` });
   } catch (error) {
-    next(error)
+    next(error);
   }
-}
+};
 
 module.exports = {
   registerUser,
   getAllUsers,
   getUserById,
   updateUser,
-  deleteUser
-}
+  deleteUser,
+};

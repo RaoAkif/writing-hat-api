@@ -2,29 +2,28 @@ const prisma = require("../services/prismaService");
 
 const runTest = async (req, res, next) => {
   try {
-    const id = 2;
-    const prompt = await prisma.prompt.findUnique({
+    const id = 1;
+    const prompt = await prisma.user.findUnique({
+      // where: {
+      //   id: parseInt(id),
+      // },
+      // select: {
+      //   id: true,
+      //   pseudonym: true,
+      //   hat: true,
+      //   _count: {
+      //     select: {
+      //       prompt: true,
+      //       response: true,
+      //     },
+      //   },
+      // },
       where: {
-        id: parseInt(id),
+        id: Number(id),
       },
-      select: {
-        id: true,
-        title: true,
-        description: true,
-        userId: true,
-        response: {
-          select: {
-            id: true,
-            description: true,
-            User: {
-              select: {
-                id: true,
-                pseudonym: true,
-                hat: true,
-              },
-            },
-          },
-        },
+      include: {
+        prompt: true,
+        response: true,
       },
     });
     if (prompt) {

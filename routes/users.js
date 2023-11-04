@@ -132,7 +132,7 @@ router.get("/", verifyJWT, userController.getAllUsers);
  *     responses:
  *        ...
  */
-router.get("/{id}", verifyJWT, userController.getUserById);
+router.get("/:id", verifyJWT, userController.getUserById);
 /**
  * @swagger
  * /api/users/{id}:

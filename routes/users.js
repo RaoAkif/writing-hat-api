@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const userController = require("../controllers/userController");
-const verifyJWT = require('../middleware/verifyJWT');
+const verifyJWT = require("../middleware/verifyJWT");
 
 /**
  * @swagger
@@ -28,7 +28,7 @@ const verifyJWT = require('../middleware/verifyJWT');
  *         city: "Lahore"
  *         country: "Pakistan"
  *         profileImage: "https://avatars.githubusercontent.com/u/61361037?s=400&u=5a3fe223b969f16e2a4523817eb3acf361935f74&v=4"
- * 
+ *
  *     Response:
  *       type: object
  *       properties:
@@ -132,7 +132,7 @@ router.get("/", verifyJWT, userController.getAllUsers);
  *     responses:
  *        ...
  */
-
+router.get("/{id}", verifyJWT, userController.getUserById);
 /**
  * @swagger
  * /api/users/{id}:

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const promptController = require("../controllers/promptController");
-const verifyJWT = require('../middleware/verifyJWT');
+const verifyJWT = require("../middleware/verifyJWT");
 
 /**
  * @swagger
@@ -85,9 +85,7 @@ const verifyJWT = require('../middleware/verifyJWT');
  *               items:
  *                 $ref: '#/components/schemas/Prompt'
  */
-router.route("/")
-  .post(verifyJWT, promptController.addPrompt)
-  .get(verifyJWT, promptController.getAllPrompts);
+router.route("/").post(verifyJWT, promptController.addPrompt).get(verifyJWT, promptController.getAllPrompts);
 
 /**
  * @swagger
@@ -181,9 +179,12 @@ router.route("/")
  *       404:
  *         description: Prompt not found
  */
-router.route("/:id")
+router
+  .route("/:id")
   .get(verifyJWT, promptController.getPromptById)
   .put(verifyJWT, promptController.updatePrompt)
   .delete(verifyJWT, promptController.deletePrompt);
+
+router.route("/byresponse/:id").get(verifyJWT, promptController.getPromptsByResponseId);
 
 module.exports = router;

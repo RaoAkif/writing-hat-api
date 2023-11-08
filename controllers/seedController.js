@@ -57,4 +57,56 @@ const seedUsers = async (req, res, next) => {
   }
 };
 
-module.exports = { seedPrompt, seedUsers, clearData, seedResponse };
+const test = async (req, res, next) => {
+  try {
+    const { id } = req.body;
+    const userSpecificResponses = await prisma.response.findMany({
+      where: {
+        userId: parseInt(id),
+      },
+      select: {
+        promptId: true,
+        // userId: true,
+      },
+    });
+
+    const promptIds = userSpecificResponses.map((response) => response.promptId);
+
+    const promptsWithUserResponses = await prisma.prompt.findMany({
+      where: {
+        id: {
+          in: promptIds,
+        },
+      },
+      select: {
+        id: true,
+        title: true,
+        description: true,
+        userId: true,
+        response: {
+          select: {
+            id: true,
+            description: true,
+            User: {
+              select: {
+                id: true,
+                pseudonym: true,
+                hat: true,
+              },
+            },
+          },
+        },
+      },
+    });
+
+    if (promptsWithUserResponses) {
+      res.json(promptsWithUserResponses);
+    } else {
+      res.status(404).json({ error: "Prompt not found" });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { seedPrompt, seedUsers, clearData, seedResponse, test };

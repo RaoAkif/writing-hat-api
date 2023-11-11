@@ -186,5 +186,6 @@ router
   .delete(verifyJWT, promptController.deletePrompt);
 
 router.route("/byresponse/:id").get(verifyJWT, promptController.getPromptsByResponseId);
+router.route("/byuserid/:id").get(verifyJWT, promptController.getPromptsByUserId);
 
 module.exports = router;

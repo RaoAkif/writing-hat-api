@@ -78,6 +78,42 @@ const getPromptById = async (req, res, next) => {
     next(error);
   }
 };
+const getPromptsByUserId = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const prompts = await prisma.prompt.findUnique({
+      where: {
+        userid: parseInt(id),
+      },
+      select: {
+        id: true,
+        title: true,
+        description: true,
+        userId: true,
+        response: {
+          select: {
+            id: true,
+            description: true,
+            User: {
+              select: {
+                id: true,
+                pseudonym: true,
+                hat: true,
+              },
+            },
+          },
+        },
+      },
+    });
+    if (prompts) {
+      res.json(prompts);
+    } else {
+      res.status(404).json({ error: "Prompts not found" });
+    }
+  } catch (error) {
+    next(error);
+  }
+};
 
 const getPromptsByResponseId = async (req, res, next) => {
   try {
@@ -197,6 +233,7 @@ module.exports = {
   addPrompt,
   getAllPrompts,
   getPromptById,
+  getPromptsByUserId,
   getPromptsByResponseId,
   updatePrompt,
   deletePrompt,

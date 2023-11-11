@@ -59,7 +59,7 @@ const seedUsers = async (req, res, next) => {
 
 const test = async (req, res, next) => {
   try {
-    const { id } = req.body;
+    const { id } = req.params;
     const userSpecificResponses = await prisma.response.findMany({
       where: {
         userId: parseInt(id),

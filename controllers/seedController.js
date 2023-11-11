@@ -60,23 +60,10 @@ const seedUsers = async (req, res, next) => {
 const test = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const userSpecificResponses = await prisma.response.findMany({
+    console.log(id);
+    const prompts = await prisma.prompt.findMany({
       where: {
         userId: parseInt(id),
-      },
-      select: {
-        promptId: true,
-        // userId: true,
-      },
-    });
-
-    const promptIds = userSpecificResponses.map((response) => response.promptId);
-
-    const promptsWithUserResponses = await prisma.prompt.findMany({
-      where: {
-        id: {
-          in: promptIds,
-        },
       },
       select: {
         id: true,
@@ -98,11 +85,10 @@ const test = async (req, res, next) => {
         },
       },
     });
-
-    if (promptsWithUserResponses) {
-      res.json(promptsWithUserResponses);
+    if (prompts) {
+      res.json(prompts);
     } else {
-      res.status(404).json({ error: "Prompt not found" });
+      res.status(404).json({ error: "Prompts not found" });
     }
   } catch (error) {
     next(error);

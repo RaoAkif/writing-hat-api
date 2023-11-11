@@ -81,9 +81,9 @@ const getPromptById = async (req, res, next) => {
 const getPromptsByUserId = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const prompts = await prisma.prompt.findUnique({
+    const prompts = await prisma.prompt.findMany({
       where: {
-        userid: parseInt(id),
+        userId: parseInt(id),
       },
       select: {
         id: true,

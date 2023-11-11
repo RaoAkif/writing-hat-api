@@ -6,5 +6,6 @@ router.route("/users").get(seedController.seedUsers);
 router.route("/response").get(seedController.seedResponse);
 router.route("/clear").get(seedController.clearData);
 router.route("/test").get(seedController.test);
+router.route("/test/:id").get(seedController.test);
 
 module.exports = router;
